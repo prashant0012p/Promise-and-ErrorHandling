@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise & error</title>
+</head>
+
+<body>
+
+    <div>
+
+        <input type="text" id="fvalue">
+        <input type="text" id="svalue">
+        <button id="btn"> Check </button>
+        <p id="status" style="border: 1px solid black;height: 20px;"></p>
+
+
+    </div>
+
+
+    <script>
+
+
+
+        button = document.getElementById('btn');
+
+
+        button.addEventListener("click", func);
+
+        function func() {
+            var firstValue = document.getElementById('fvalue').value;
+            var secondValue = document.getElementById('svalue').value;
+
+
+
+            let myPromise = new Promise(function (resolve, reject) {
+
+                if (firstValue === secondValue) {
+
+                    resolve()
+
+                }
+
+                else {
+
+                    reject()
+
+                }
+
+            })
+
+            myPromise.then(function () {
+
+                document.getElementById("status").innerHTML = "Success,No error found"
+
+
+            }).catch(function () {
+
+                document.getElementById("status").innerHTML = "Some error has occurred"
+
+
+            })
+
+
+
+
+
+        }
+
+        let myPromise = new Promise(function (resolve, reject) {
+
+            var x = 100;
+            var y = 100;
+            if (x === y) {
+
+                resolve();
+
+
+            }
+            else {
+
+                reject();
+
+
+
+            }
+
+
+        });
+        myPromise.then(function () {
+
+            console.log('Success,No error found')
+
+        }).catch(function () {
+
+            console.log("Some error has occurred")
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
